@@ -42,14 +42,14 @@ class Store {
   // Retrieve the configuration from the API.
   async getConfig() {
     try {
-      const response = await fetch('/config'); //apikeys
+      const response = await fetch('/config'); //apike
       const config = await response.json();
       if (config.stripePublishableKey.includes('live')) {
         // Hide the demo notice if the publishable key is in live mode.
         document.querySelector('#order-total .demo').style.display = 'none';
       }
       //console.log(config)
-      return 'pk_live_GRfb9E6zcrgEEnTaWp7u29vt003Y7g5SrT';
+      return config;
     } catch (err) {
       return {error: err.message};
     }
